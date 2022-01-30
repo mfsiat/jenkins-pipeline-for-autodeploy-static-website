@@ -29,3 +29,5 @@ We will deploy a static website using Jenkins pipeline
 9. To check the pipline functionality properly we can change our codebase and again build the pipeline. The change should be reflected in the website
 
     ![](/snapshots/after-change.png)
+
+10. To configure automatic job trigger we can select "GitHub hook" or "Poll SCM" or any other from the Build Triggers section of the job
