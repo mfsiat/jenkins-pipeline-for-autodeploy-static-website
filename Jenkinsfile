@@ -14,7 +14,7 @@ pipeline {
                 script {
                     def remote = [:]
                     remote.name = "node-1"
-                    remote.host = "54.169.221.203"
+                    remote.host = "<REMOTE-HOST-NAME>"
                     remote.allowAnyHosts = true
                     withCredentials([sshUserPrivateKey(credentialsId: 'deploy-server', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
                         remote.user = userName
