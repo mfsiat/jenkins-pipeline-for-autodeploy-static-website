@@ -35,7 +35,7 @@ pipeline {
         stage('Test') {
             steps {
                 // Get HTML code from a GitHub repository
-                sh 'curl http://54.169.221.203/'
+                sh 'curl http://<REMOTE-HOST-NAME>/'
             }
         }
     }
