@@ -14,7 +14,7 @@ pipeline {
                 script {
                     def remote = [:]
                     remote.name = "node-1"
-                    remote.host = "54.169.221.203"
+                    remote.host = "<REMOTE-HOST-NAME>"
                     remote.allowAnyHosts = true
                     withCredentials([sshUserPrivateKey(credentialsId: 'deploy-server', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
                         remote.user = userName
@@ -35,7 +35,14 @@ pipeline {
         stage('Test') {
             steps {
                 // Get HTML code from a GitHub repository
-                sh 'curl http://54.169.221.203/'
+                sh 'curl http://<REMOTE-HOST-NAME>/'
+            }
+        }
+        stage('Publish') {
+            steps {
+                // Get HTML code from a GitHub repository
+                sh 'curl http://<REMOTE-HOST-NAME>/ > test.html' 
+                archive (includes: 'test.html')
             }
         }
     }
