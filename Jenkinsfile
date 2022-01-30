@@ -38,5 +38,12 @@ pipeline {
                 sh 'curl http://<REMOTE-HOST-NAME>/'
             }
         }
+        stage('Publish') {
+            steps {
+                // Get HTML code from a GitHub repository
+                sh 'curl http://<REMOTE-HOST-NAME>/ > test.html' 
+                archive (includes: 'test.html')
+            }
+        }
     }
 }
